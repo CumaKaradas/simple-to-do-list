@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container" id="taskList">
+    <h1 class="app-header">{{ title }}</h1>
+    <div class="add-task">
+      <input type="text" autocomplete="off" placeholder="Add New Task" v-model="newTaskName" @keyup.enter="newItem" class="task-input">
+      <button @click="newItem" class="submit-task">+</button>
+    </div>
+    <ul class="task-list">
+      <li class="task-list-item" v-for="task in tasks" :key="task.name">
+        <label class="task-list-item-label">
+          <input type="checkbox">
+          <span>{{ task.name }}</span>
+        </label>
+        <button @click="delItem(task)" class="delete-btn">✕</button>
+      </li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
